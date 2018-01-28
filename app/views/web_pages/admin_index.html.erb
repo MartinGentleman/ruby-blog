@@ -1,0 +1,24 @@
+<h1><%= t :Web_Pages_Index %></h1>
+
+<%= button_to new_web_page_path, :method => :get, :title => t(:New_page) do %>
+	<i class="fa fa-file-o fa-3x"></i>
+<% end %>
+
+<p><strong><%= t :Total_number_of_pages, number: @web_page_count %></strong></p>
+
+<% if @web_page_count > 0 %>
+
+<table>
+  <% @web_pages.each do |page| %>
+    <tr>
+      <td><%= link_to page.title, "/"+page.path, title: page.title %></td>
+      <td><%= "/"+page.path %></td>
+      <td><%= button_to t(:Edit), edit_web_page_path(page), :method => :get, id: page.id, title: t(:Edit_what, what: page.title) %></td>
+      <td><%= button_to t(:Delete), web_page_path(page), :method => :delete, id: page.id, title: t(:Delete_what, what: page.title), onclick: 'return ConfirmationDialogue.create(this,\''+t(:Delete_confirmation, what:page.title)+'\');' %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= will_paginate @web_pages, :previous_label => t("previous"), :next_label => t("next") %>
+
+<% end %>

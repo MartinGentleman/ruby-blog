@@ -1,0 +1,29 @@
+<div id="blog-index-page">
+	
+<h1 class="page_title">Per Aspera<br />Ad Astra<br /><span><%= t :Personal_blog %></span></h1>
+
+<% if is_admin? %>
+<div id="edit-page-toolbar">
+<%= button_to t(:New_page), new_web_page_path+"/"+@tag_id, :method => :get, title: t(:New_page) %>
+</div>
+<% end %>
+	
+<% @web_pages.each do |page| %>
+<%= link_to "/"+page.path, title: page.title, class: "web_page_summary_block"+(page.unpublished? ? " web_page_summary_block_unpublished" : "") do %>
+<% if page.unscheduled? then %>
+<div><%= t :Unscheduled_draft %></div>
+<% elsif page.scheduled? then %>
+<div><%= t :Scheduled_for, published_at: page.published_at %></div>
+<% end %>
+<h2><%= page.title %></h2>
+<%= if page.image then image_tag page.image.url(:rectangle), width: 400, height: 225 end %>
+<p><%= truncate(page.summary, separator: " ", length: 180) %>
+<br /><br /><strong><%= t :Read_more %></strong>
+</p>
+<hr class="cleaner">
+<% end %>
+<% end %>
+
+<%= will_paginate @web_pages, :previous_label => t("previous"), :next_label => t("next") %>
+
+</div>

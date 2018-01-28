@@ -1,0 +1,16 @@
+<h1>Business Intelligence</h1>
+
+<!-- The 2 Buttons for the user to interact with -->
+<button id="authorize-button" style="visibility: hidden">Authorize</button><br/>
+<button id="make-api-call-button" style="visibility: hidden">Get Sessions</button>
+
+<!-- These JavaScript files will be created later on in the tutorial -->
+<%= javascript_include_tag 'analytics_api_v3_auth',
+					   'analytics_api_v3',
+					   'data-turbolinks-track' => true %>
+
+<!-- Load the Client Library. Use the onload parameter to specify a callback function -->
+<%= javascript_include_tag 'https://apis.google.com/js/client.js?onload=handleClientLoad',
+					   'data-turbolinks-track' => true %>
+
+<%= button_to t(:Settings), analytics_settings_path, method: "get", class: "floatRight", title: t(:Settings) %>

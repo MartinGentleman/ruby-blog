@@ -1,0 +1,7 @@
+<h1><%= t :Analytics_settings %></h1>
+
+<%= button_to t(:Back_to_index), analytics_path, method: "get", title: t(:Back_to_index) %>
+
+<p><%= raw t :Analytics_settings_info_message %></p>
+
+<%= render 'form' %>

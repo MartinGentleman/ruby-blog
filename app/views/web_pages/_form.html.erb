@@ -1,0 +1,36 @@
+<%= form_for @web_page do |f| %>
+ 
+  <% if @web_page.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= t(:errors_prohibited_something_from_saving, count: @web_page.errors.count, what: t(:web_page)) %>
+      </h2>
+      <ul>
+        <% @web_page.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <%= if @tag_id then f.hidden_field :tag_id, :value => @tag_id end %>
+ 
+  <table>
+  	<tr>
+  		<td><%= f.text_field :title, placeholder: t("activerecord.attributes.web_page.title") %></td>
+  	</tr>
+  	<tr>
+  		<td><%= f.text_field :path, placeholder: t("activerecord.attributes.web_page.path"), value: @web_page.path ? URI.decode(@web_page.path) : "" %></td>
+  	</tr>
+  	<tr>
+  		<td> <%= f.text_area :summary, placeholder: t("activerecord.attributes.web_page.summary") %></td>
+  	</tr>
+  	<tr>
+  		<td><div class="floatRight"><%= t :Choose_language %> <%= f.select :language, options_for_select([['en','en'],['cs','cs']], :selected => (@web_page.title ? @web_page.language : get_locale))  %></div></td>
+  	</tr>
+  	<tr>
+  		<td><%= f.submit t(:Save_web_page) %></td>
+  	</tr>
+  </table>
+ 
+<% end %>

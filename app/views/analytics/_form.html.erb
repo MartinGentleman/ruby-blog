@@ -1,0 +1,25 @@
+<%= form_for @analytic, url: {action: "update_settings"} do |f| %>
+ 
+  <% if @analytic.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= t(:errors_prohibited_something_from_saving, count: @analytic.errors.count, what: t(:setting)) %>
+      </h2>
+      <ul>
+        <% @analytic.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <table>
+  	<tr>
+  		<td><%= f.text_field :value, placeholder: t(:Google_Analytics_Tracking_ID) +' "UA-0000000-0"' %></td>
+  	</tr>
+  	<tr>
+  		<td><%= f.submit t(:Save_settings) %></td>
+  	</tr>
+  </table>
+ 
+<% end %>

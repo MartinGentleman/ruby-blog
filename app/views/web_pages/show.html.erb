@@ -1,0 +1,63 @@
+<h1 class="page_title"><%= @web_page.title %></h1>
+
+<% if is_admin? && @web_page.id %>
+<script>
+var updateID = <%= @web_page.id %>;
+</script>
+
+<div id="page-admin-tabs">
+	<div id="edit-page-toolbar">
+		<div id="edit-page-button"><button onclick="toggleEditWebPage();" title="<%= t :Edit_page %>"><%= t :Edit_page %></button></div>
+		<div id="edit-page-tabs">
+			<span><%= t :Edit_page %></span>
+			<ul id="edit-page-tabs">
+				<li><a href="#page-contents"><%= t :Text %></a></li>
+				<li><a href="#page-details"><%= t :Details %></a></li>
+				<li><a href="#page-background-image"><%= t :Image %></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="contents" id="page-contents">
+		<%= raw @web_page.content %>
+	</div>
+	<div id="page-details">
+		<%= render 'form' %>
+	</div>
+	<div id="page-background-image">
+		<button onclick="saveEditPageImage();"><%= t :Save_image %></button><hr class="cleaner" />
+	</div>
+</div>
+<% if @web_page.unpublished? then %>
+<div id="web_page_publish_toolbar">
+	<script>
+		var scheduleHtml = '<h2>Schedule publishing "'+$("h1").text()+'"</h2>'+
+			'<form><fieldset><table><tr><td><input type="text" class="datetimepicker" name="published_at" placeholder="Pick date and time" /></td></tr><tr><td><input type="submit" value="Schedule" /></td></tr></table></fieldset></form>';
+	</script>
+	<%= button_to t(:Publish), url_for(controller: "web_pages", action: "publish", id: @web_page.id), :method => :get, :title => t(:Publish), :onclick => 'return ConfirmationDialogue.create(this,\''+t(:Publish_confirmation, what: @web_page.title)+'\');' %>
+	<button onclick="editPageSchedule(scheduleHtml);" title="<%= t :Schedule %>"><%= t :Schedule %></button>
+	<button onclick="editPageSaveDraft();" title="<%= t :Save_as_draft %>" id="edit-page-save-as-draft" class="displayNone"><%= t :Save_as_draft %></button>
+	<%= render 'shared/datetimepicker' %>
+</div>
+<% end %>
+<script>
+	var originalHTMLContent = "<%= j raw @web_page.content %>";
+</script>
+<%= javascript_include_tag 'web_page_editor', 'data-turbolinks-track' => true %>
+<% else %>
+
+<div class="contents" id="page-contents">
+<%= raw @web_page.content %>
+
+</div>
+<% end %>
+
+<% if @web_page.tags.exists?(1) then %>
+
+<hr class="cleaner" />
+<div class="fb-like" data-href="<%= "#{get_website_address}/#{@web_page.path}" %>" data-colorscheme="dark" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+<br /><br /><br />
+<div class="fb-comments" data-href="<%= "#{get_website_address}/#{@web_page.path}" %>" data-width="994" data-numposts="5" data-colorscheme="dark"></div>
+
+<% end %>
+
+<%= render 'shared/syntax_highlighter' %>

@@ -1,0 +1,110 @@
+ /*
+  *= require froala_editor.min.css
+  */
+
+#administration {
+  position: fixed;
+  top: 0;
+  right: 0;
+  input, button {
+    display: block;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+#edit-page-toolbar {
+  display: block;
+  width: 100%;
+  text-align: center;
+  height: 55px;
+  margin: -100px 0 45px 0;
+}
+
+#edit-page-tabs {
+  display: none;
+}
+
+#page-admin-tabs {
+  span {
+    float: left;
+  }
+  ul#edit-page-tabs {
+    display: inline;
+    list-style-type: none;
+    li {
+      display: inline;
+      padding-right: 30px;
+    }
+  }
+}
+
+#page-details {
+  display: none;
+}
+
+#page-background-image {
+  display: none;
+}
+
+#web_page_publish_toolbar {
+  text-align: center;
+}
+
+#sortable-dynamic-menu-items {
+  cursor: grab;
+}
+
+#dynamic-menu-table-picker {
+  cursor: pointer;
+}
+
+#media_manager_index_table {
+  float: left;
+  margin-right: 10px;
+  td {
+    border: none;
+  }
+}
+
+#media_manager_index_album_table {
+  div {
+    width: 200px;
+    height: 200px;
+    background: #999;
+    color: #fff;
+    border-radius: 10px;
+  }
+  span {
+    display: block;
+    text-align: center;
+    padding-top: 10px;
+  }
+  td {
+    border: none;
+  }
+}
+
+#media_manager_info_area {
+  visibility: hidden;
+  float: left;
+  width: 300px;
+  button {
+    float: right;
+  }
+}
+
+#fileupload {
+  margin-bottom: 20px;
+}
+
+.froala-wrapper.f-basic {
+  background-color: #000 !important;
+}
+.small-button {
+  line-height: 1em;
+  height: 40px;
+  width: 40px;
+  padding: 5px;
+  margin: 0 5px;
+}

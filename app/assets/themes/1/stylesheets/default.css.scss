@@ -1,0 +1,276 @@
+/* Using Roboto Slab font Normal and Bold http://www.google.com/fonts/ */
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700&subset=latin,latin-ext);
+
+$gray: #999;
+$default-unit: 1em;
+$padding: 0.6em;
+$default-font-size: 1em;
+$default-line-height: 1.6em;
+$page-width: 54em;
+
+html {
+  height: 100%;
+}
+body {
+  font-family: 'Roboto Slab', serif;
+  font-size: $default-unit;
+  line-height: $default-line-height;
+  color: #eee;
+  background: #000 image-url("1/images/blog-main-background.jpg") top center no-repeat;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+#page-contents {
+  width: 40em;
+  margin: 0 auto;
+}
+#web_pages_show {
+  background: rgba(0,0,0,0.4) image-url("1/images/background-line.png") top repeat-x;
+  min-height: 100%;
+  #alerts {
+    position: relative;
+    top: -100px;
+  }
+}
+img {
+  max-width: 100%;
+}
+h1 {
+  @extend .center;
+  font-weight: bold;
+  font-size: 3em;
+  line-height: 1.16em;
+  margin: $padding*2 auto;
+}
+.page_title {
+  margin: 2em auto;
+}
+h1 span {
+  color: $gray;
+}
+a {
+  font-weight: normal;
+  text-decoration: none;
+}
+a:link {
+  color: $gray;
+}
+a:visited {
+  color: $gray;
+}
+a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+header {
+  background-color: rgba(0,0,0,0.8);
+  display: block;
+  height: 3.75em;
+  font-size: 1em;
+  div {
+    margin: 0 auto;
+    max-width: $page-width;
+    >a {
+      padding: (1.75em / 4);
+      font-size: 2em;
+      line-height: 1em;
+      float:left;
+      display: block;
+    }
+  }
+  ul {
+    float:right;
+    padding: 0 $padding;
+    display: block;
+    list-style-type: none;
+  }
+  li {
+    float:left;
+    padding-left: $padding*2;
+  }
+}
+nav, header {
+  a:link {
+    color: #fff;
+  }
+  a:visited {
+    color: #fff;
+  }
+  a:hover {
+    color: $gray;
+    text-decoration: none;
+  }
+}
+article {
+  display: block;
+  margin: 0 auto;
+  max-width: $page-width - $padding * 2;
+  padding: 0 $padding;
+}
+footer {
+  display: block;
+  @extend .center;
+  padding: 6.25em 0 2em 0;
+  clear: both;
+  nav {
+    display: inline;
+  }
+  ul {
+    display: inline;
+    list-style-type: none;
+  }
+  li {
+    display: inline;
+    padding-right: $padding*2;
+    form {
+      display: inline;
+    }
+  }
+}
+p {
+  padding: 0 0 $default-line-height 0;
+  text-align: justify;
+  iframe {
+    margin: auto 6.25em 1.3em 6.25em;
+  }
+  img {
+    margin: 0 auto;
+    display: block;
+  }
+}
+pre {
+  background: black !important;
+}
+form {
+  display: inline;
+  table {
+    input[type=submit] {
+      float: right;
+    }
+    td {
+      border: none;
+      padding: 0;
+    }
+  }
+}
+button, input, textarea, select {
+  font-size: $default-font-size;
+  line-height: $default-line-height;
+  border: #fff 2px solid;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 0.5em;
+  margin: 5px;
+}
+textarea {
+  width: 15em;
+  height: 12em;
+}
+input[type=text], input[type=password] {
+  width: 15em;
+}
+label {
+  font-size: $default-font-size;
+  line-height: $default-line-height;
+  padding: 0.5em;
+  margin: 5px;
+}
+button {
+  cursor: pointer;
+}
+button:hover {
+  opacity: 0.5;
+}
+input[type=submit] {
+  cursor: pointer;
+}
+input[type=submit]:hover {
+  opacity: 0.5;
+}
+fieldset {
+  border: none;
+}
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+td, th {
+  border-bottom: #333 1px solid;
+  padding: $padding $padding;
+  margin: 0;
+}
+#blog-index-page {
+  h1 {
+    text-align: left;
+    margin-top: 2em;
+  }
+}
+.web_page_summary_block:hover {
+    text-decoration: none;
+    strong {
+      text-decoration: underline;
+    }
+  }
+.web_page_summary_block {
+  display:block;
+  margin: 0 0 1.6em 0;
+  h2 {
+    margin-top: 0px;
+    float: left;
+    color: #eee;
+  }
+  p {
+    color: #eee;
+    width: 25em;
+    clear: left;
+    display: inline-block;
+    float: left;
+    text-align: justify;
+    line-height: 1.3em;
+  }
+  strong {
+    color: $gray;
+  }
+  img {
+    float:right;
+    display: inline-block;
+  }
+  div {
+    color: #eee;
+    font-style: italic;
+  }
+}
+.web_page_summary_block_unpublished {
+  background: rgba(50,50,50,0.5);
+  padding: $padding;
+  border-radius: 10px;
+  position: relative;
+  left: -$padding;
+}
+.pagination {
+  text-align: center;
+}
+.center {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: middle;
+}
+.floatRight {
+  float: right;
+}
+.floatLeft {
+  float: left;
+}
+.cleaner {
+  width: 100%;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+  border: none;
+}
+.displayNone {
+  display: none;
+}

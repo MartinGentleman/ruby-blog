@@ -1,0 +1,26 @@
+<hr class="cleaner">
+<%= form_for @album, url: {controller: "media_manager"} do |f| %>
+ 
+  <% if @album.errors.any? %>
+    <div id="error_explanation">
+      <p>
+        <%= t(:errors_prohibited_something_from_saving, count: @album.errors.count, what: t(:album)) %>
+      </p>
+      <ul>
+        <% @album.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <table>
+  	<tr>
+  		<td><%= f.text_field :title, placeholder: t("activerecord.attributes.album.title") %></td>
+  	</tr>	
+  	<tr>
+  		<td><%= f.submit t(:Save_album) %></td>
+  	</tr>
+  </table>
+ 
+<% end %>

@@ -1,0 +1,21 @@
+<h1><%= t :Rule_Me %></h1>
+
+<% if flash[:alert] %>
+	<p class="alert center"><%= flash[:alert] %></p>
+<% end %>
+
+<div id="sign-in-form">
+<%= form_tag do %>
+	<fieldset>
+	  <table>
+	  	<tr>
+	  		<td><%= text_field_tag :name, params[:name], placeholder: t(:Name) %></td>
+	  	</tr>
+	  	<tr>
+	  		<td><%= password_field_tag :password, params[:password], placeholder: t(:Password) %></td>
+	  	</tr>
+	  	<tr><td><%= submit_tag t(:Rule_Me) %></td></tr>
+	  </table>
+	</fieldset>
+<% end %>
+</div>

@@ -1,0 +1,37 @@
+<%= javascript_include_tag 'media_manager', 'data-turbolinks-track' => true %>
+
+<h1>Album <%= @album.title %></h1>
+
+<%= button_to t(:Back_to_Media_Manager), media_manager_index_path, method: "get", class: "floatLeft" %>
+
+<%= button_to t(:Delete_album, title: @album.title), media_manager_path(@album.id), method: "delete", class: "floatRight", onclick: 'return ConfirmationDialogue.create(this,\''+t(:Delete_confirmation, what: @album.title)+'\');' %>
+<%= button_to t(:Edit_album, title: @album.title), edit_media_manager_path(@album.id), method: "get", class: "floatRight" %>
+
+<hr class="cleaner">
+
+<p><strong><%= t :Total_number_of_images, number: @image_count %></strong></p>
+
+<input id="fileupload" type="file" name="file" data-url="/images/<%= @album.id %>" multiple="multiple">
+<br />
+
+<% if @image_count > 0 %>
+
+<table id="media_manager_index_table">
+  <% i = 1
+  number_of_images_per_row = 5 %>
+  <% @images.each do |image| %>
+  	<% if i%number_of_images_per_row == 1 %><tr><% end %>
+      <td><img src="<%= image.url(:thumb) %>" width="100" onclick="pickImage(this,<%= image.id %>);" /></td>
+    <% if i%number_of_images_per_row == 0 %></tr><% end %>
+    <% i = i+1 %>
+  <% end %>
+  <% if (i-1)%number_of_images_per_row != 0 %><td colspan="<%= number_of_images_per_row-((i-1)%number_of_images_per_row) %>">&nbsp;</td></tr><% end %>
+</table>
+<div id="media_manager_info_area">
+	<img id="media_manager_info_image" width="300" />
+	<button onclick="deleteImage();"><%= t :Delete %></button>
+</div>
+<hr class="cleaner" />
+<%= will_paginate @images %>
+
+<% end %>

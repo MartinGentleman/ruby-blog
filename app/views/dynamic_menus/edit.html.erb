@@ -1,0 +1,31 @@
+<script>
+var dynamic_menu_name_to_replace = "<%= @title %>";
+</script>
+<%= javascript_include_tag 'dynamic_menu', 'data-turbolinks-track' => true %>
+
+<h1><%= t :Edit_menu, name: @title %></h1>
+
+<h2><%= t :Menu_contents, name: @title %></h2>
+
+<% if @available_pages.size > 0 then %>
+<div id="dynamic-menu-web-pages">
+	<ul id="sortable-dynamic-menu-items">
+		<% if @dynamic_menu then @dynamic_menu.each do |page| %>
+			<li id="sortable-dynamic-menu-item-<%= page.id %>"><%= page.title %></li>
+		<% end end %>
+	</ul>
+</div>
+
+<h2><%= t :Pick_from_available_web_pages %></h2>
+
+<table id="dynamic-menu-table-picker">
+<% @available_pages.each do |page| %>
+	<tr>
+	  <td id="dynamic-menu-table-page-<%= page.id %>" onclick="pickWebPageForDynamicMenu(<%= page.id %>,'<%= page.title %>',this);"><%= page.title %></td>
+	</tr>
+<% end %>
+</table>
+<% else %>
+<p><%= t :There_no_web_pages %></p>
+<%= button_to t(:New_web_page), new_web_page_path, :method => :get %>
+<% end %>

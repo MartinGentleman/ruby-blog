@@ -1,0 +1,93 @@
+# coding: utf-8
+cs:
+  Choose_language: "Zvolte jazyk"
+  Personal_blog: "Osobní blog"
+  Scheduled_for: "Naplánováno na %{published_at}"
+  Unscheduled_draft: "Nenaplánovaný koncept"
+  Read_more: "Přečíst více..."
+  previous: "&lt;&lt; předchozí"
+  next: "následující &gt;&gt;"
+  New_page: "Nová stránka"
+  Edit_page: "Upravit stránku"
+  Page_Not_Found: "Stránka nenalezena"
+  The_page_was_not_found: "Stránka nebyla nalezena"
+  Sign_Out: "Odhlásit se"
+  Web_Pages: "Webové stránky"
+  Media_Manager: "Správce médii"
+  Analytics: "Analytika"
+  Invalid_credentials: "Byla vložena nesprávná kombinace jména a hesla."
+  Album_title: "Jméno alba"
+  Save_album: "Uložit album"
+  album: "album"
+  errors_prohibited_something_from_saving:
+    zero: "Žádné chyby nezabránily v uložení."
+    one: "1 chyba zabránila v uložení."
+    other: "Počet chyb, kterých zabránilo v uložení: %{count}."
+  Back_to_Media_Manager: "Zpět ke Správci médií"
+  Delete_album: 'Smazat album "%{title}"'
+  Edit_album: 'Upravit album "%{title}"'
+  Total_number_of_images: "Celkový počet obrázků: %{number}."
+  Delete: "Smazat"
+  Edit: "Upravit"
+  Delete_what: 'Smazat "%{what}"'
+  Edit_what: 'Upravit "%{what}"'
+  Delete_confirmation: 'Opravdu si přejete smazat "%{what}"?'
+  Publish_confirmation: 'Opravdu si přejete nyní publikovat "%{what}"?'
+  Back_to_the_album: "Zpět k albu"
+  New_album: "Nové album"
+  Total_number_of_albums: "Celkový počet alb: %{number}."
+  Rule_Me: "Ovládni mě!"
+  Name: "Jméno"
+  Password: "Heslo"
+  Edit_menu: 'Upravit menu "%{name}"'
+  Menu_contents: 'Obsah menu "%{name}"'
+  Pick_from_available_web_pages: 'Zvolte z dostupných webových stránek'
+  New_web_page: "Nová webová stránka"
+  There_no_web_pages: "V systému ještě nejsou vytvořeny žádné webové stránky. Prosím, vytvořte napřed nějaké stránky."
+  web_page: "webová stránka"
+  Save_web_page: "Uložit webovou stránku"
+  Web_Pages_Index: "Index webových stránek"
+  Total_number_of_pages: "Celkový počet stránek: %{number}."
+  Text: "Text"
+  Details: "Detaily"
+  Image: "Obrázek"
+  Save_image: "Uložit obrázek"
+  Publish: "Publikovat"
+  Save_as_draft: "Uložit jako koncept"
+  Schedule: "Naplánovat"
+  Settings: "Nastavení"
+  setting: "nastavení"
+  Save_settings: "Uložit nastavení"
+  Google_Analytics_Tracking_ID: "Google Analytics Tracking ID"
+  Analytics_settings: "Nastavení analytiky"
+  Analytics_settings_info_message: "Používáme <a href='http://www.google.com/analytics/' target='_blank' title='Google Analytics'>Google Analytics</a> pro nabídku nejmodernější technologie sledování webu."
+  Back_to_index: "Zpět k přehledu"
+
+  errors:
+    messages:
+      blank: "nesmí být prázdný."
+      too_short: "je příliš krátký (minimum jsou %{count} znaky)."
+      taken: "je již použito."
+
+  activerecord:
+    attributes:
+      setting:
+        key: "Klíč nastavení"
+        value: "Hodnota nastavení"
+      album:
+        title: "Název alba"
+      web_page:
+        title: "Jméno webové stránky"
+        path: "Cesta k webové stránce"
+        summary: "Shrnutí webové stránky"
+    errors:
+      models:
+        web_page:
+          attributes:
+            title:
+              blank: "nesmí být prázdné."
+              too_short: "je příliš krátké (minimum jsou %{count} znaky)."
+            path:
+              blank: "nesmí být prázdná."
+              too_short: "je příliš krátká (minimum jsou %{count} znaky)."
+              taken: "je již použita."

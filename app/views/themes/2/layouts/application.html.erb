@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title><%= @title ? @title + " | Martin Novák" : "Martin Novák" %></title>
+<meta charset="UTF-8" />
+	
+<%= stylesheet_link_tag    'application', media: 'all' %>
+<%= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js',
+						   'https://cdnjs.cloudflare.com/ajax/libs/ember.js/1.11.3/ember.min.js',
+						   'translations_'+get_locale,
+  						   'application' %>
+
+<%= if !Site.current.settings.key("analytics.tracking_id").empty? then render 'shared/google_analytics', tracking_id: Site.current.settings.key("analytics.tracking_id").value end %>
+<%= csrf_meta_tags %>
+<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif] -->
+</head>
+<body>	
+	<header>
+		<div>
+			<%= link_to "Martin Novák", "/", :title => "Martin Novák", :id => "logo" %>
+			<%= render 'shared/dynamic_menu', title: "Main menu "+get_locale %>
+		</div>
+	</header>
+
+	<article>
+<%= yield %>
+	</article>
+
+	<footer>
+		<strong>&copy; <%= Time.now.year %> Martin Novák</strong>
+		<%= render 'shared/dynamic_menu', title: "Main menu "+get_locale %>
+		<hr class="cleaner">
+		<strong><%= t :Choose_language %>:</strong>
+		<%= raw (get_locale == "cs") ? "Čeština" : '<a href="/cs">Čeština</a>' %>,
+		<%= raw (get_locale == "en") ? "English" : '<a href="/en">English</a>' %>
+	</footer>
+
+<%= if !is_admin? then render "shared/google_analytics_pageview" end %>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<%= javascript_include_tag 'media_manager', 'data-turbolinks-track' => true %>
+
+<h1><%= t :Media_Manager %></h1>
+
+<%= button_to new_media_manager_path, :method => :get, :title => t(:New_album) do %>
+	<i class="fa fa-file-o fa-3x"></i>
+<% end %>
+
+<p><strong><%= t :Total_number_of_albums, number: @album_count %></strong></p>
+
+<% if @album_count > 0 %>
+
+<table id="media_manager_index_album_table">
+  <% i = 1
+  number_of_albums_per_row = 2 %>
+  <% @albums.each do |album| %>
+  	<% if i%number_of_albums_per_row == 1 %><tr><% end %>
+      <td><%= link_to media_manager_path(URI.encode(album.title)) do %><div><span><%= album.title %></span></div><% end %></td>
+    <% if i%number_of_albums_per_row == 0 %></tr><% end %>
+    <% i = i+1 %>
+  <% end %>
+  <% if (i-1)%number_of_albums_per_row != 0 %><td colspan="<%= number_of_albums_per_row-((i-1)%number_of_albums_per_row) %>">&nbsp;</td></tr><% end %>
+</table>
+<hr class="cleaner" />
+<%= will_paginate @albums, :previous_label => t("previous"), :next_label => t("next") %>
+
+<% end %>

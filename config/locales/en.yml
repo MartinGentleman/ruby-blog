@@ -1,0 +1,75 @@
+en:
+  Choose_language: "Choose language"
+  Personal_blog: "Personal blog"
+  Scheduled_for: "Scheduled for %{published_at}"
+  Unscheduled_draft: "Unscheduled draft"
+  Read_more: "Read more..."
+  previous: "&lt;&lt; previous"
+  next: "next &gt;&gt;"
+  New_page: "New page"
+  Edit_page: "Edit page"
+  Page_Not_Found: "Page Not Found"
+  The_page_was_not_found: "The page was not found"
+  Sign_Out: "Sign Out"
+  Web_Pages: "Web Pages"
+  Media_Manager: "Media Manager"
+  Analytics: "Analytics"
+  Invalid_credentials: "You have entered invalid user/password combination."
+  Album_title: "Album name"
+  Save_album: "Save album"
+  album: "album"
+  errors_prohibited_something_from_saving:
+    zero: "No errors prohibited the %{what} from being saved."
+    one: "1 error prohibited the %{what} from being saved."
+    other: "%{count} errors prohibited the %{what} from being saved."
+  Back_to_Media_Manager: "Back to Media Manager"
+  Delete_album: 'Delete album "%{title}"'
+  Edit_album: 'Edit album "%{title}"'
+  Total_number_of_images: "Total number of images: %{number}."
+  Delete: "Delete"
+  Edit: "Edit"
+  Delete_what: 'Delete "%{what}"'
+  Edit_what: 'Edit "%{what}"'
+  Delete_confirmation: 'Are you sure that you want to delete "%{what}"?'
+  Publish_confirmation: 'Are you sure that you want to publish "%{what}" now?'
+  Back_to_the_album: "Back to the album"
+  New_album: "New album"
+  Total_number_of_albums: "Total number of albums: %{number}."
+  Rule_Me: "Rule Me!"
+  Name: "Name"
+  Password: "Password"
+  Edit_menu: 'Edit menu "%{name}"'
+  Menu_contents: 'Menu "%{name}" contents'
+  Pick_from_available_web_pages: 'Pick from available web pages'
+  New_web_page: "New web page"
+  There_no_web_pages: "There are no created web pages in the system yet. Please create some pages first."
+  web_page: "web page"
+  Save_web_page: "Save web page"
+  Web_Pages_Index: "Web Page Index"
+  Total_number_of_pages: "Total number of pages: %{number}."
+  Text: "Text"
+  Details: "Details"
+  Image: "Image"
+  Save_image: "Save image"
+  Publish: "Publish"
+  Save_as_draft: "Save as draft"
+  Schedule: "Schedule"
+  Settings: "Settings"
+  setting: "setting"
+  Save_settings: "Save settings"
+  Google_Analytics_Tracking_ID: "Google Analytics Tracking ID"
+  Analytics_settings: "Analytics settings"
+  Analytics_settings_info_message: "We use <a href='http://www.google.com/analytics/' target='_blank' title='Google Analytics'>Google Analytics</a> to provide the current edge technology for web tracking."
+  Back_to_index: "Back to overview"
+
+  activerecord:
+    attributes:
+      setting:
+        key: "Setting key"
+        value: "Setting value"
+      album:
+        title: "Album name"
+      web_page:
+        title: "Web page name"
+        path: "Web page path"
+        summary: "Web page summary"

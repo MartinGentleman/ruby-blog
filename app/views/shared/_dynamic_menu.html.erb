@@ -1,0 +1,9 @@
+<nav>
+	<ul>
+		<% menu =  DynamicMenu.find_all_web_pages_by_dynamic_menu_title(title)
+		if menu then menu.each do |page| %>
+		<li><a href="/<%= page.path %>" title="<%= page.title %>"><%= page.title %></a></li>
+		<% end end %>
+		<% if is_admin? %><li><%= button_to edit_dynamic_menu_path(title), :class => "small-button", :params => { :menu_name => title }, :method => :get, :title => t(:Edit_menu, name: title) do %><i class="fa fa-plus"></i><% end %></li><% end %>
+	</ul>
+</nav>
